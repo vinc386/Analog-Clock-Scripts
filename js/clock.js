@@ -1,3 +1,4 @@
+var deg = 0;
 function startClock()
 {
 	// get time from machine
@@ -19,18 +20,23 @@ function startClock()
 	t = setTimeout('startClock()', 500)
 }
 
+function calculate_degree(i){
+	deg = 360 / 60 * i;
+}
+
 function update_sec(sec){
 	// calculate the angle
-	
+	calculate_degree(sec);
 	// rotate the arrow by the degree that is calculated using the "tick" method
+	
 }
 
 function update_min(min){
-	
+	calculate_degree(min);
 }
 
 function update_hour(hr){
-	
+	calculate_degree(hr);
 }
 
 function tick(deg, elmt){
