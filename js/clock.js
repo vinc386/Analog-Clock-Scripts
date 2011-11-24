@@ -1,11 +1,12 @@
-var deg;
+var deg, h, m, s; // make these variable global 
+
 function startClock()
 {
 	// get time from machine
 	var now = new Date();
-	var h = now.getHours();
-	var m = now.getMinutes();
-	var s = now.getSeconds();
+	h = now.getHours();
+	m = now.getMinutes();
+	s = now.getSeconds();
 	// update all positions every second
 	update_hour(h);
 	update_min(m);
@@ -36,12 +37,7 @@ function update_hour(hr){
 	}
 	hr *= 5; 
 	calculate_degree(hr);
-	// if (hr == 0){
-	// 	deg += min/2;
-	// }
-	// else{
-		// deg += hr/2; this line here has not fixed the hour issue
-	// }
+	deg += m/2; // this line fixed the hour hand issue
 	tick(deg, 'ArrowHour');
 }
 
@@ -51,7 +47,6 @@ function tick(deg, elmt){
 										+ "-o-transform: (" + deg + "deg);"
 										+ "-webkit-transform:rotate(" + deg + "deg);"
 										+ "filter:progid:DXImageTransform.Microsoft.BasicImage(" + deg + "deg);"
-										);
-									
+										); // still have compatibility issue with IE
 }
 startClock();
