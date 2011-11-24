@@ -8,9 +8,9 @@ function startClock()
 	m = now.getMinutes();
 	s = now.getSeconds();
 	// update all positions every time this method is called
-	update_hour(h);
-	update_min(m);
 	update_sec(s);
+	update_min(m);
+	update_hour(h);
 	// update time every half of a sec
 	t = setTimeout('startClock()', 500)
 }
@@ -20,9 +20,9 @@ function calculate_degree(i){
 }
 
 function update_sec(sec){
-	// calculate the angle
+	// calculate the degree
 	calculate_degree(sec);
-	// rotate the arrow by the degree that is calculated using the "tick" method
+	// rotate the hand by the calculated degree
 	tick(deg, 'ArrowSec');
 }
 
