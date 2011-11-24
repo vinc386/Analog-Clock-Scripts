@@ -46,7 +46,8 @@ function tick(deg, elmt){
      + "-moz-transform: rotate(" + deg + "deg);"
      + "-o-transform: rotate(" + deg + "deg);"
      + "-webkit-transform:rotate(" + deg + "deg);"
-     + "-ms-transform:rotate("+ deg +"deg);"
+     // + "-ms-transform:rotate("+ deg +"deg);"
+	 //need to convert it to matrix in order to make it work in IE
 	);
 }
 startClock();
