@@ -10,14 +10,6 @@ function startClock()
 	update_sec(s);
 	update_min(m);
 	update_hour(h);
-	// if (s == 0){
-	// 	// update position of minute arrow while the second arrow hits "12"
-	// 	update_min(m);
-	// }
-	// if (m == 0){
-	// 	// update position of hour arrow while the minite arrow hits "12"
-	// 	update_hour(h);
-	// }
 	// update time every half of a sec
 	t = setTimeout('startClock()', 500)
 }
@@ -52,8 +44,9 @@ function tick(deg, elmt){
 	document.getElementById(elmt).setAttribute("style", "transform:rotate(" + deg + "deg);"
 										+ "-moz-transform: (" + deg + "deg);"
 										+ "-o-transform: (" + deg + "deg);"
-										+ "-webkit-transform:rotate(" + deg + "deg)");
-										// add method for IEs
+										+ "-webkit-transform:rotate(" + deg + "deg);"
+										+ "filter:progid:DXImageTransform.Microsoft.BasicImage(" + deg + "deg);");
+									
 }
 
 startClock();

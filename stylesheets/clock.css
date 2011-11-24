@@ -31,11 +31,3 @@ div.clock{
 	margin-left:44%;
 	top:38%;
 	}
-
-/* rotate methods for different browsers
-#rotate{
-	-moz-transform:rotate(deg); 
-	-o-transform:rotate(deg);
-	-webkit-transform:rotate(deg);
-	-ms-transform:rotate(deg);
-	filter:progid:DXImageTransform.Microsoft.BasicImage(rotation=);}*/
