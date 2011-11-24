@@ -1,6 +1,6 @@
 div#clock_bg{
 	position:relative;
-	z-index:0; /*align all the arrows images on top of this back groud image using z-index*/
+	z-index:0; /*align all the hands (images) on top of this back groud image using z-index*/
 }
 
 div#ArrowHour{
@@ -22,7 +22,7 @@ div#ArrowSec{
 	position:absolute;
 	left:0;
 	top:0;
-	z-index:3;
+	z-index:3; /*this one should stay on top*/
 }
 
 /*	centralized the clock*/

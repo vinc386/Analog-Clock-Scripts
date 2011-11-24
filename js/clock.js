@@ -34,7 +34,7 @@ function update_min(min){
 function update_hour(hr){
 	if (hr > 12){
 		hr -= 12;
-	}
+	}// to make the format right before passing the number for calculation
 	calculate_degree(hr*5);
 	deg += m/2; // this line fixed the hour hand issue
 	tick(deg, 'ArrowHour');
