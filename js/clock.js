@@ -41,11 +41,12 @@ function update_hour(hr){
 }
 
 function tick(deg, elmt){
-	document.getElementById(elmt).setAttribute("style", "transform:rotate(" + deg + "deg);"
-										+ "-moz-transform: (" + deg + "deg);"
-										+ "-o-transform: (" + deg + "deg);"
-										+ "-webkit-transform:rotate(" + deg + "deg);"
-										+ "filter:progid:DXImageTransform.Microsoft.BasicImage(" + deg + "deg);"
-										); // still have compatibility issue with IE
+	document.getElementById(elmt).setAttribute(
+	"style", "transform:rotate(" + deg + "deg);"
+     + "-moz-transform: rotate(" + deg + "deg);"
+     + "-o-transform: rotate(" + deg + "deg);"
+     + "-webkit-transform:rotate(" + deg + "deg);"
+     + "-ms-transform:rotate("+ deg +"deg);"
+	);
 }
 startClock();
