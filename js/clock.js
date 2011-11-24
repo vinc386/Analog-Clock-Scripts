@@ -1,4 +1,4 @@
-var deg = 0;
+var deg;
 function startClock()
 {
 	// get time from machine
@@ -7,9 +7,9 @@ function startClock()
 	var m = now.getMinutes();
 	var s = now.getSeconds();
 	// update all positions every second
-	update_sec(s);
-	update_min(m);
 	update_hour(h);
+	update_min(m);
+	update_sec(s);
 	// update time every half of a sec
 	t = setTimeout('startClock()', 500)
 }
@@ -36,7 +36,12 @@ function update_hour(hr){
 	}
 	hr *= 5; 
 	calculate_degree(hr);
-	deg += hr/2; // adding this line to make the arrow go gradually from one number to another
+	// if (hr == 0){
+	// 	deg += min/2;
+	// }
+	// else{
+		// deg += hr/2; this line here has not fixed the hour issue
+	// }
 	tick(deg, 'ArrowHour');
 }
 
@@ -45,8 +50,8 @@ function tick(deg, elmt){
 										+ "-moz-transform: (" + deg + "deg);"
 										+ "-o-transform: (" + deg + "deg);"
 										+ "-webkit-transform:rotate(" + deg + "deg);"
-										+ "filter:progid:DXImageTransform.Microsoft.BasicImage(" + deg + "deg);");
+										+ "filter:progid:DXImageTransform.Microsoft.BasicImage(" + deg + "deg);"
+										);
 									
 }
-
 startClock();
