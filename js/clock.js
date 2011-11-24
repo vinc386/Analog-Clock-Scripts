@@ -1,4 +1,4 @@
-var deg, h, m, s; // make these variable global 
+var deg, h, m, s; // make these variables global
 
 function startClock()
 {
@@ -7,7 +7,7 @@ function startClock()
 	h = now.getHours();
 	m = now.getMinutes();
 	s = now.getSeconds();
-	// update all positions every second
+	// update all positions every time this method is called
 	update_hour(h);
 	update_min(m);
 	update_sec(s);
@@ -35,8 +35,7 @@ function update_hour(hr){
 	if (hr > 12){
 		hr -= 12;
 	}
-	hr *= 5; 
-	calculate_degree(hr);
+	calculate_degree(hr*5);
 	deg += m/2; // this line fixed the hour hand issue
 	tick(deg, 'ArrowHour');
 }
