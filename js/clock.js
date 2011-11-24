@@ -44,6 +44,7 @@ function update_hour(hr){
 	}
 	hr *= 5; 
 	calculate_degree(hr);
+	deg += hr/2; // adding this line to make the arrow go gradually from one number to another
 	tick(deg, 'ArrowHour');
 }
 
@@ -52,6 +53,7 @@ function tick(deg, elmt){
 										+ "-moz-transform: (" + deg + "deg);"
 										+ "-o-transform: (" + deg + "deg);"
 										+ "-webkit-transform:rotate(" + deg + "deg)");
+										// add method for IEs
 }
 
 startClock();
