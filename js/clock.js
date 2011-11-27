@@ -1,4 +1,6 @@
 var deg, h, m, s; // make these variables global
+var a, b, c, d;
+
 
 function startClock()
 {
@@ -17,6 +19,17 @@ function startClock()
 
 function calculate_degree(i){
 	deg = 360 / 60 * i;
+	// the rest is for IE
+	var deg2rad = Math.PI*2/360;
+	var rad = deg * deg2rad;
+	var cosRad = Math.cos(rad);
+	var sinRad = Math.sin(rad);
+	
+	a = parseFloat(cosRad).toFixed(8);
+	b = parseFloat(-sinRad).toFixed(8);
+	c = parseFloat(sinRad).toFixed(8);
+	d = parseFloat(cosRad).toFixed(8);
+	
 }
 
 function update_sec(sec){
@@ -41,13 +54,14 @@ function update_hour(hr){
 }
 
 function tick(deg, elmt){
+	// write css
 	document.getElementById(elmt).setAttribute(
 	"style", "transform:rotate(" + deg + "deg);"
-     + "-moz-transform: rotate(" + deg + "deg);"
-     + "-o-transform: rotate(" + deg + "deg);"
-     + "-webkit-transform:rotate(" + deg + "deg);"
-     // + "-ms-transform:rotate("+ deg +"deg);"
-	 //need to convert it to matrix in order to make it work in IE
+     + "-moz-transform: rotate(" + deg + "deg);" //  firefox
+     + "-o-transform: rotate(" + deg + "deg);" // opera
+     + "-webkit-transform:rotate(" + deg + "deg);" // chrome and safari
+     + "filter: progid:DXImageTransform.Microsoft.Matrix("+ // IE, need test!!
+			"M11="+ a +", M12="+ b +",M21="+ c +", M22="+ d +", sizingMethod='auto expand');"
 	);
 }
 startClock();
