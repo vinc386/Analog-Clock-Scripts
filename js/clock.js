@@ -1,5 +1,5 @@
 var deg, h, m, s; 
-var a, b, c, d;
+// var a, b, c, d;
 // these variables are required in multiple places, therefore they are global
 
 function startClock()
@@ -20,15 +20,15 @@ function startClock()
 function calculate_degree(i){
 	deg = 360 / 60 * i;
 	// the rest is for IE
-	var deg2rad = Math.PI*2/360;
-	var rad = deg * deg2rad;
-	var cosRad = Math.cos(rad);
-	var sinRad = Math.sin(rad);
-	// calculate the matrix for IE's rotation
-	a = parseFloat(cosRad).toFixed(8);
-	b = parseFloat(-sinRad).toFixed(8);
-	c = parseFloat(sinRad).toFixed(8);
-	d = parseFloat(cosRad).toFixed(8);
+	// var deg2rad = Math.PI*2/360;
+	// var rad = deg * deg2rad;
+	// var cosRad = Math.cos(rad);
+	// var sinRad = Math.sin(rad);
+	// // calculate the matrix for IE's rotation
+	// a = parseFloat(cosRad).toFixed(8);
+	// b = parseFloat(-sinRad).toFixed(8);
+	// c = parseFloat(sinRad).toFixed(8);
+	// d = parseFloat(cosRad).toFixed(8);
 	
 }
 
@@ -61,8 +61,8 @@ function tick(deg, elmt){
      + "-o-transform: rotate(" + deg + "deg);" // opera
      + "-webkit-transform:rotate(" + deg + "deg);" // chrome and safari
 	 + "-ms-transform: rotate("+ deg +"deg);" // Works IE 9!! 
-			//      + "filter: progid:DXImageTransform.Microsoft.Matrix("+ // IE, need test!!
-			// "M11="+ a +", M12="+ b +",M21="+ c +", M22="+ d +", sizingMethod='auto expand');"
+  // + "filter: progid:DXImageTransform.Microsoft.Matrix("+ 
+		// "M11="+ a +", M12="+ b +",M21="+ c +", M22="+ d +", sizingMethod='auto expand');" //for IE 6-8, it has conflict with the IE 9 method
 	);
 }
 startClock();
