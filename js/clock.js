@@ -1,6 +1,5 @@
 var deg, h, m, s; 
 // var a, b, c, d;
-// these variables are required in multiple places, therefore they are global
 
 function startClock()
 {
@@ -19,7 +18,7 @@ function startClock()
 
 function calculate_degree(i){
 	deg = 360 / 60 * i;
-	// the rest is for IE
+	// the rest is for IE 8 and earlier, but has problems with IE 9
 	// var deg2rad = Math.PI*2/360;
 	// var rad = deg * deg2rad;
 	// var cosRad = Math.cos(rad);
@@ -29,7 +28,6 @@ function calculate_degree(i){
 	// b = parseFloat(-sinRad).toFixed(8);
 	// c = parseFloat(sinRad).toFixed(8);
 	// d = parseFloat(cosRad).toFixed(8);
-	
 }
 
 function update_sec(sec){
@@ -62,7 +60,7 @@ function tick(deg, elmt){
      + "-webkit-transform:rotate(" + deg + "deg);" // chrome and safari
 	 + "-ms-transform: rotate("+ deg +"deg);" // Works IE 9!! 
   // + "filter: progid:DXImageTransform.Microsoft.Matrix("+ 
-		// "M11="+ a +", M12="+ b +",M21="+ c +", M22="+ d +", sizingMethod='auto expand');" //for IE 6-8, it has conflict with the IE 9 method
+		// "M11="+ a +", M12="+ b +",M21="+ c +", M22="+ d +", sizingMethod='auto expand');" //for IE 6-8
 	);
 }
 startClock();
